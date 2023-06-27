@@ -4,7 +4,12 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template("home.html",title="Home")
+    conn = sqlite3.connect('car.db')
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM car')
+    results = cur.fetchall()
+
+    return render_template("home.html",results=results)
     
 @app.route("/contacts")
 def contacts():
