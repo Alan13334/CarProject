@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% block content %}
+All Cars
+{% for car in car%}
+<h2>{{car[1]}}</h2>
+{% endfor %}
+{% endblock %}
