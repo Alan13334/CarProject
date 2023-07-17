@@ -1,5 +1,28 @@
+li {
+  font-family:"Comic Sans";
+}
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
   }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(96, 104, 117);
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  

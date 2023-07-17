@@ -11,17 +11,21 @@ def home():
 
     return render_template("home.html",results=results)
     
-@app.route("/contacts")
+@app.route("/contact")
 def contacts():
-    return render_template("contacts.html",title="Contacts")
+    return render_template("contact.html",title="Contact")
 
 @app.route("/about")
 def about():
     return render_template("about.html",title="About")
 
 @app.route('/all_cars')
-def all_cars():
-    return render_template("all_cars",title="all_cars")
+def movies():
+    conn = sqlite3.connect('car.db')
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM car')
+    car = cur.fetchall()
+    return render_template('all_cars.html', car=car)
 
 @app.route('/all_pizzas')
 def all_pizzas():
