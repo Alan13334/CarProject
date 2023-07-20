@@ -25,4 +25,17 @@ ul {
     padding: 14px 16px;
     text-decoration: none;
   }
-  
+  img {
+    float: left;
+    width:  500px;
+    height: 250px;
+    object-fit: cover;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+  }

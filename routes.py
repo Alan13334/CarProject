@@ -20,34 +20,25 @@ def about():
     return render_template("about.html",title="About")
 
 @app.route('/all_cars')
-def movies():
+def cars():
     conn = sqlite3.connect('car.db')
     cur = conn.cursor()
     cur.execute('SELECT * FROM car')
     car = cur.fetchall()
     return render_template('all_cars.html', car=car)
 
-@app.route('/all_pizzas')
-def all_pizzas():
+@app.route('/cars/<int:id>')
+def car(id):
     conn = sqlite3.connect('car.db')
     cur = conn.cursor()
-    cur.execute('SELECT * FROM car')
-    results = cur.fetchall()
-
-    return render_template("all_pizzas.html",results=results)
-
-@app.route('/pizza/<int:id>')
-def pizza(id):
-    conn = sqlite3.connect('car.db')
-    cur = conn.cursor()
-    cur.execute('SELECT * FROM Pizza WHERE id=?',(id,))
-    pizza = cur.fetchone()
-    cur.execute('SELECT name FROM Base WHERE id=?',(id,))
-    base = cur.fetchone()
-    cur.execute('SELECT name FROM Topping WHERE id In (SELECT tid From PizzaTopping WHERE pid=?)',(id,))
-    Topping = cur.fetchall()
-    
-    return render_template("pizza.html",pizza=pizza, base=base,Topping=Topping)
+    cur.execute('SELECT name FROM car WHERE id=?',(id,))
+    name = cur.fetchone()
+    cur.execute('SELECT brand FROM car WHERE id=?',(id,))
+    brand = cur.fetchone()
+    cur.execute('SELECT catergory FROM car WHERE id=?',(id,))
+    catergory = cur.fetchall()
+    cur.execute('SELECT name FROM car WHERE id=?',(id,))
+    return render_template("cars.html",name=name, brand=brand,catergory=catergory)
 
 
 if __name__ == '__main__':
