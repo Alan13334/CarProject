@@ -12,6 +12,8 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: rgb(96, 104, 117);
+    font-weight: 200px;
+    text-align:center;
   }
   
   li {
@@ -20,13 +22,16 @@ ul {
   
   li a {
     display: block;
-    color: white;
+    color: rgb(255, 255, 255);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 17px;
+    font-weight: bold;
   }
   img {
-    float: left;
+    float: center;
     width:  500px;
     height: 250px;
     object-fit: cover;
@@ -34,8 +39,11 @@ ul {
   .grid-container {
     display: grid;
     grid-template-columns: auto auto auto;
-    padding: 10px;
+    padding: 10px;  
   }
   .grid-item {
     background-color: rgba(255, 255, 255, 0.8);
+    font-size: 30px;
+    font-family: sans-serif;
+    text-align: center;
   }

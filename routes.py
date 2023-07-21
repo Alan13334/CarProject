@@ -26,6 +26,7 @@ def cars():
     cur.execute('SELECT * FROM car')
     car = cur.fetchall()
     return render_template('all_cars.html', car=car)
+  
 
 @app.route('/cars/<int:id>')
 def car(id):
