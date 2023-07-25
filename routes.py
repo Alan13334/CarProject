@@ -32,14 +32,16 @@ def cars():
 def car(id):
     conn = sqlite3.connect('car.db')
     cur = conn.cursor()
-    cur.execute('SELECT name FROM car WHERE id=?',(id,))
-    name = cur.fetchone()
-    cur.execute('SELECT brand FROM car WHERE id=?',(id,))
-    brand = cur.fetchone()
+    cur.execute('SELECT name FROM car WHERE brand=?',(id,))
+    name = cur.fetchall()
+    cur.execute('SELECT brand FROM car WHERE brand=?',(id,))
+    brand = cur.fetchall()
+    cur.execute('SELECT photo FROM car WHERE brand=?',(id,))
+    photo = cur.fetchall()
     cur.execute('SELECT catergory FROM car WHERE id=?',(id,))
     catergory = cur.fetchall()
     cur.execute('SELECT name FROM car WHERE id=?',(id,))
-    return render_template("cars.html",name=name, brand=brand,catergory=catergory)
+    return render_template("cars.html",name=name, brand=brand,catergory=catergory,photo=photo)
 
 
 if __name__ == '__main__':

@@ -1,5 +1,14 @@
 {% extends "layout.html" %}
 {% block content %}
+<div class="grid-container">
+    {% for phot in photo%}
+    <h2>
+    <div class="grid-item">
+        <a href=""><img src="{{phot[0]}}"/></a>
+    
+    
+    </h2>
+    {% endfor %}
 
-<h1>Cars Page</h1>
+<h1></h1>
 {% endblock %}
