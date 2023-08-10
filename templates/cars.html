@@ -1,18 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
-
-
 <div class="grid-container">
-    {% for car in car%}
-   
-   
+    {% for phot in photo%}
     <h2>
-        {{car[1]}} 
-    
     <div class="grid-item">
-        <a href="/cars_detail/{{car[0]}}"><img src="{{car[4]}}"/></a>
-
-        
+        <a href=""><img src="{{phot[0]}}"/></a>
+    
     
     </h2>
     {% endfor %}
