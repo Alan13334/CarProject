@@ -1,3 +1,19 @@
+h2 {
+  text-align: center;
+  font-size: 30px;
+font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.mainimage {
+  display: grid;
+  place-items: center;
+
+  width: auto;
+  height: auto;
+}
+
+
 li {
   font-family:"Comic Sans";
 }
@@ -26,15 +42,16 @@ ul {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 17px;
+    font-family: system-ui;
+    font-size: 25px;
   }
 
-  img {
+  .coolimg {
     float: center;
     width:  480px;
     height: 250px;
     object-fit: cover;
+    background-color: #333;
   }
   .grid-container {
     display: grid;
@@ -55,12 +72,16 @@ ul {
 
 .navbar a {
   float: left;
-  font-size: 16px;
+  font-size: 25px;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  background-color: #333;
+  
 }
+
+body { margin: 0; padding: 0; }
 
 .dropdown {
   float: left;
@@ -68,13 +89,13 @@ ul {
 }
 
 .dropdown .dropbtn {
-  font-size: 16px;  
+  font-size: 25px;  
   border: none;
   outline: none;
   color: white;
   padding: 14px 16px;
   background-color: inherit;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: system-ui;
   margin: 0;
 }
 
@@ -110,11 +131,95 @@ ul {
 
 .arrow {
   border: solid rgb(255, 255, 255);
-  border-width: 3px 3px 3px 3px;
+  border-width: 0px 3px 3px 0px ;
   display: inline-block;
-  padding: 2px;
+  padding: 5px;
+
 }
 .down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+}
+
+.carheader {
+font-size: 50px;
+text-align: center;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+
+h3 {font-family: Arial, Helvetica, sans-serif;
+color: rgb(80, 97, 50);
+font-size: 50px;
+margin-left: 20px;
+
+}
+
+p {font-size: medium;
+
+}
+
+footer {margin-left: 10px;
+font-size: 17px;
+margin-bottom: 5px;
+font-weight:bold;
+bottom: 0;
+width: 100%;
+}
+
+CONTACT_FORM
+
+body {
+  font-family: system-ui;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  font-family: system-ui;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: system-ui;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+}
+
+button {
+  background-color: #061e6bf8;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
 }

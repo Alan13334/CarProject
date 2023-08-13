@@ -1,4 +1,4 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,request, redirect
 import sqlite3
 app = Flask(__name__)
 
@@ -19,29 +19,37 @@ def contacts():
 def about():
     return render_template("about.html",title="About")
 
-@app.route('/all_cars')
-def cars():
-    conn = sqlite3.connect('car.db')
-    cur = conn.cursor()
-    cur.execute('SELECT * FROM car')
-    car = cur.fetchall()
-    return render_template('all_cars.html', car=car)
-  
-
 @app.route('/cars/<int:id>')
 def car(id):
     conn = sqlite3.connect('car.db')
     cur = conn.cursor()
-    cur.execute('SELECT name FROM car WHERE brand=?',(id,))
-    name = cur.fetchall()
-    cur.execute('SELECT brand FROM car WHERE brand=?',(id,))
-    brand = cur.fetchall()
-    cur.execute('SELECT photo FROM car WHERE brand=?',(id,))
-    photo = cur.fetchall()
-    cur.execute('SELECT catergory FROM car WHERE id=?',(id,))
-    catergory = cur.fetchall()
-    cur.execute('SELECT name FROM car WHERE id=?',(id,))
-    return render_template("cars.html",name=name, brand=brand,catergory=catergory,photo=photo)
+    cur.execute('SELECT * FROM car WHERE brand=?',(id,))
+    car = cur.fetchall()
+    
+    return render_template("cars.html",car=car)
+
+@app.route('/contact', methods=['POST'])
+def contact_form():
+    conn = sqlite3.connect('car.db')
+    name = request.form['name']
+    email = request.form['email']
+    message = request.form['message']
+    conn = sqlite3.connect('car.db')
+    cursor = conn.cursor()
+    cursor.execute('INSERT INTO Contact (name, email, message) VALUES (?, ?, ?)', (name, email, message))
+    conn.commit()
+    return redirect("http://127.0.0.1:5000/")
+
+
+
+
+@app.route('/cars_detail/<int:id>')
+def cars_detail(id):
+    conn = sqlite3.connect('car.db')
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM car WHERE id=?',(id,))
+    car = cur.fetchall()
+    return render_template("cars_detail.html",car=car)
 
 
 if __name__ == '__main__':
