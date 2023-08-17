@@ -49,7 +49,11 @@ def cars_detail(id):
     cur = conn.cursor()
     cur.execute('SELECT * FROM car WHERE id=?',(id,))
     car = cur.fetchall()
-    return render_template("cars_detail.html",car=car)
+    
+    
+    cur.execute('SELECT name FROM category WHERE id=?',(car[0][3],))
+    category = cur.fetchall()
+    return render_template("cars_detail.html",car=car,category=category)
 
 
 if __name__ == '__main__':
