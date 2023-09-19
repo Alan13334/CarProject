@@ -5,18 +5,20 @@
 <div class="grid-container">
     {% for car in car%}
    
-   
-    <h2>
-        {{car[1]}} 
-        
-        ({{category[0][0]}})
+   <div class="car_name">
+    <h2>{{car[1]}} ({{category[0][0]}}) 
+       <br>
+       <br>
+        {{car[5]}}
+    
 
     
-    <div class="grid-item">
+    <div class="about-car">
         <img src="{{car[4]}}" width="900"  height: auto;/></a>
 
-        
+    </div>
     
+
     </h2>
     {% endfor %}
 

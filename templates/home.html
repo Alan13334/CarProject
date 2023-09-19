@@ -1,9 +1,24 @@
 {% extends "layout.html" %}
 {% block content %}
-
-<div class="bodywrap">
-
-    <h1>This is the home page</h1>
-
-{% endblock %}
+<h4>WELCOME TO AUTOPRO.COM, 
+    <br>
+    THE ULTIMATE GUIDE TO CARS</h4>
+<div class="carheader">
+<p1>Trending Cars</p1>
 </div>
+<div class="grid-container">
+   
+   
+        {% for car in data %}
+        <div class="grid-item">
+            <a href="{{ url_for('cars_detail', id=car[0]) }}">
+                <a href="/cars_detail/{{car[0]}}"><img class="coolimg" src="{{car[4]}}"/></a>
+                <h2>{{ car[1] }}</h2>
+
+            
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+

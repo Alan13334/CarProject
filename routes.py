@@ -2,14 +2,17 @@ from flask import Flask,render_template,request, redirect
 import sqlite3
 app = Flask(__name__)
 
-@app.route("/")
-def home():
-    conn = sqlite3.connect('car.db')
-    cur = conn.cursor()
-    cur.execute('SELECT * FROM car')
-    results = cur.fetchall()
+def get_random_data():
+    with sqlite3.connect('car.db') as conn:
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM car ORDER BY RANDOM() LIMIT 3")
+        data = cursor.fetchall()
+    return data
 
-    return render_template("home.html",results=results)
+@app.route('/')
+def home():
+    random_data = get_random_data()
+    return render_template('home.html', data=random_data)
     
 @app.route("/contact")
 def contacts():
